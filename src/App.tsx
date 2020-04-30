@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Backend from 'react-dnd-html5-backend'
+import React from 'react'
+import { AppBar, Container, Grid, Toolbar, Typography } from '@material-ui/core'
+import { DashboardContainer } from './components/Dashboard/DashboardContainer'
+import { DndProvider } from 'react-dnd'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import css from './index.module.css'
 
-export default App;
+export const RootApp: React.FC = () => (
+  <React.Fragment>
+    <DndProvider backend={Backend}>
+      <Container maxWidth="lg" className={css.main}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">Task Dashboard</Typography>
+          </Toolbar>
+        </AppBar>
+        <Grid container>
+          <DashboardContainer />
+        </Grid>
+      </Container>
+    </DndProvider>
+  </React.Fragment>
+)

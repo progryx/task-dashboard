@@ -1,0 +1,9 @@
+.preloader {
+    margin: 25% auto;
+    justify-content: center;
+}
+
+.groups {
+    height: 100vh;
+    overflow: auto;
+}
